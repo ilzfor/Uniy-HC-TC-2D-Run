@@ -19,10 +19,6 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: c58c792fee3698a409eb87968f9a800b, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 780a92b5ddceff442a23c5884b6e83a1, type: 3}
     - time: 0.16666667
       value: {fileID: 21300000, guid: fc579cde5fc168d448bf97c007037c10, type: 3}
     - time: 0.25
@@ -52,8 +48,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: c58c792fee3698a409eb87968f9a800b, type: 3}
-    - {fileID: 21300000, guid: 780a92b5ddceff442a23c5884b6e83a1, type: 3}
     - {fileID: 21300000, guid: fc579cde5fc168d448bf97c007037c10, type: 3}
     - {fileID: 21300000, guid: 9a0dab1eb2d4ad1428a9a8d97b6e4ec7, type: 3}
     - {fileID: 21300000, guid: 3ec49e86c5aab034babc890956247338, type: 3}
