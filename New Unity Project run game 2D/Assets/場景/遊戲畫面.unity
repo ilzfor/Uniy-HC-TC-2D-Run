@@ -7611,6 +7611,7 @@ GameObject:
   - component: {fileID: 1105300218}
   - component: {fileID: 1105300222}
   - component: {fileID: 1105300221}
+  - component: {fileID: 1105300223}
   m_Layer: 0
   m_Name: "\u8173\u8272"
   m_TagString: Untagged
@@ -7738,6 +7739,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1105300223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105300217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63508729eb16dab4eac7f059cb751986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  HP: 999.9
+  coin: 0
+  heignt: 500
+  sounjump: {fileID: 8300000, guid: 67834f34a8b0ea248bde3cfc9c59d5c8, type: 3}
+  sounat: {fileID: 8300000, guid: b7c53a8a22e36054a854e60524f26960, type: 3}
+  sounhy: {fileID: 8300000, guid: 93ea70619cdc22d4abe4e5efbd19b93d, type: 3}
+  soungethit: {fileID: 8300000, guid: fa8ed5386dd9bfa44a05f84af6c195c1, type: 3}
+  dead: 0
 --- !u!1001 &1105660184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8534,6 +8556,49 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1229495030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229495032}
+  - component: {fileID: 1229495031}
+  m_Layer: 0
+  m_Name: "\u7DF4\u7FD2\u7528\u7269\u4EF6"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1229495031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229495030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17fcf64b8924094fae8d1de428b6caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1229495032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229495030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1287178154
 PrefabInstance:
   m_ObjectHideFlags: 0
