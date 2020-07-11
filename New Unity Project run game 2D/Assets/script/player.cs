@@ -49,6 +49,8 @@ public class player : MonoBehaviour
     [Tooltip("死亡確認")]
     public bool dead;
 
+    [Header("動畫控制器")]
+    public Animator ani;
     #endregion
 # region 方法區域
     /// <summary>
@@ -56,14 +58,22 @@ public class player : MonoBehaviour
     /// </summary>
     private void jump()
     {
-        print("滑行");
+        //布林值=輸入,取得按鍵(按鍵代碼列舉,左邊ctrl)
+
+        bool key2 = Input.GetKey(KeyCode.Space);
+
+        ani.SetBool("跳躍",key2);
+
     }
     /// <summary>
     /// 腳色滑行時的速度和體積變化
     /// </summary>
     private void slide()
     {
-        print("滑行");
+
+       bool key =Input.GetKey(KeyCode.LeftControl);
+
+        ani.SetBool("滑行",key);
     }
     /// <summary>
     /// 腳色攻擊的素質
@@ -100,14 +110,15 @@ public class player : MonoBehaviour
     //初始化:
     private void Start()
     {
-        //呼叫跳躍方法
-        jump();
+      
+       
     }
     //更新 Update
     //播放遊戲後一秒直行約60次-60FPS
     //移動、監聽玩家鍵盤、滑鼠與觸控
     private void Update()
     {
+        jump();
         slide();
     }
     #endregion
