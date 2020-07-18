@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GridPaintPaletteWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 517
     width: 553
     height: 430
-  m_MinSize: {x: 241, y: 221}
+  m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 17}
   - {fileID: 15}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
     y: 0
     width: 553
     height: 947
-  m_MinSize: {x: 276, y: 292}
+  m_MinSize: {x: 276, y: 192}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
   controlID: 91
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 90
+  controlID: 96
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -430,14 +430,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.7525379
+    - e00: 1.0935922
       e01: 0
       e02: 0
-      e03: -127.94656
+      e03: -275.26666
       e10: 0
-      e11: 0.7525379
+      e11: 1.0935922
       e12: 0
-      e13: 107.49002
+      e13: 76.3003
       e20: 0
       e21: 0
       e22: 1
@@ -644,7 +644,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 450
+  m_LastVerticalScrollValue: 1224
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -684,20 +684,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/\u5834\u666F"
+    - "Assets/\u97F3\u6A02"
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - "Assets/\u5834\u666F"
+  - "Assets/\u97F3\u6A02"
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\USER\Desktop\Uniy-HC-TC-2D-Run\New Unity Project run
-    game 2D
+  m_LastProjectPath: C:\Users\USER\Documents\GitHub\Uniy-HC-TC-2D-Run\New Unity Project
+    run game 2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a3c0000
-    m_LastClickedID: 15418
+    m_SelectedIDs: 5a3c0000
+    m_LastClickedID: 15450
     m_ExpandedIDs: 00000000f43b0000f63b0000f83b0000fa3b0000fc3b0000fe3b0000003c0000023c0000043c0000063c0000083c00000a3c00000c3c00000e3c0000103c0000123c0000143c0000163c0000183c00001a3c00001c3c00001e3c0000203c0000223c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -910,9 +910,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.3301775, y: -0.33690098, z: -83.956055}
+    m_Target: {x: 22.412241, y: -1.6430087, z: -66.94531}
     speed: 2
-    m_Value: {x: 0.3301775, y: -0.33690098, z: -83.956055}
+    m_Value: {x: 22.412241, y: -1.6430087, z: -66.94531}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -962,9 +962,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.6443315
+    m_Target: 37.25833
     speed: 2
-    m_Value: 6.6443315
+    m_Value: 37.25833
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1017,24 +1017,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 049fffff5efbffffc4380000ce3800006e390000f239000058f2000002f3000088f30000
+      scrollPos: {x: 0, y: 32}
+      m_SelectedIDs: 72390000
+      m_LastClickedID: 14706
+      m_ExpandedIDs: 5efbffffc8380000d2380000da38000072390000fe390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: game_maoudamashii_2_lastboss02
-        m_OriginalName: game_maoudamashii_2_lastboss02
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 62160
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 13}
       m_SearchString: 

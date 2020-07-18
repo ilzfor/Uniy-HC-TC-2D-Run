@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
@@ -29,11 +30,14 @@ public class player : MonoBehaviour
     //標題 Header
     //提示 Tooltip
     //範圍 Range
+    [Header("金幣文字")]
+    public Text textcoin;
 
     [Header("速度"), Tooltip("腳色移動速度"), Range(1, 1500)]
+
     public int speed = 50;
     [Tooltip("腳色血量")]
-    public float HP = 999.9f;
+    public float HP = 500;
     [Tooltip("金幣")]
     public int coin;
     [Tooltip("跳躍高度"), Range(10, 1000)]
@@ -46,6 +50,8 @@ public class player : MonoBehaviour
     public AudioClip sounhy;
     [Tooltip("碰撞音效")]
     public AudioClip soungethit;
+    [Tooltip("金幣音效")]
+    public AudioClip soungetcoin;
     [Tooltip("死亡確認")]
     public bool dead;
 
@@ -56,6 +62,12 @@ public class player : MonoBehaviour
     [Header("剛體")]
     public Rigidbody2D rig;
     public bool isGround;
+
+    [Header("血條")]
+    public Image imghp;
+    private float hpMax;
+    [Header("音效")]
+    public AudioSource and;
     #endregion
     #region 方法區域
     /// <summary>
@@ -63,7 +75,7 @@ public class player : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if (rig.velocity.magnitude < 5)
+        if (rig.velocity.magnitude < 4.3)
         {
             //剛體,添加推力(二維向量)
             rig.AddForce(new Vector2(speed, 0));
@@ -82,6 +94,7 @@ public class player : MonoBehaviour
         //作用:將布林值變成相反
         //!true---false
         ani.SetBool("跳躍", !isGround);
+        and.PlayOneShot(sounjump);
 
         //如果在地板上
         if (isGround)
@@ -107,6 +120,7 @@ public class player : MonoBehaviour
             cc2d.offset = new Vector2(-0.328f, -1.44f);//位移
 
             cc2d.size = new Vector2(1.925f, 2.018f);//尺寸
+            and.PlayOneShot(sounhy);
         }
         else
         {
@@ -126,9 +140,12 @@ public class player : MonoBehaviour
     /// <summary>
     /// 金幣數值和金幣計算
     /// </summary>
-    private void getcoin()
+    private void getcoin(Collider2D collision)
     {
-
+        coin++;
+        Destroy(collision.gameObject);
+        textcoin.text = "金幣:" + coin;
+        and.PlayOneShot(soungetcoin);
     }
     /// <summary>
     ///腳色死亡後的相關計算 
@@ -140,9 +157,11 @@ public class player : MonoBehaviour
     /// <summary>
     /// 碰撞障礙後的相關計算
     /// </summary>
-    private void hti()
+    private void hit()
     {
-
+        HP -= 50;
+        imghp.fillAmount = HP / hpMax;
+        and.PlayOneShot(soungethit);
     }
     #endregion
     #region 事件區域
@@ -151,7 +170,7 @@ public class player : MonoBehaviour
     //初始化:
     private void Start()
     {
-
+        hpMax = HP;
 
     }
     //更新 Update
@@ -182,6 +201,27 @@ public class player : MonoBehaviour
         {
             //是否在地板上=是
             isGround = true;
+        }
+        if (collision.gameObject.name == "浮空地板"&& transform.position.y+1>collision.gameObject.transform.position.y)
+
+        {
+            //是否在地板上=是
+            isGround = true;
+        }
+     
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "金幣")
+        {
+            getcoin(collision);
+        }
+        if (collision.tag =="障礙物")
+        {
+            hit();
         }
     }
 
