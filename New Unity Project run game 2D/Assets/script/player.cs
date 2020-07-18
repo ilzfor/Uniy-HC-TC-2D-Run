@@ -68,6 +68,12 @@ public class player : MonoBehaviour
     private float hpMax;
     [Header("音效")]
     public AudioSource and;
+    [Header("遊戲結束")]
+    public GameObject final;
+    [Header("標題")]
+    public Text textTitle;
+    [Header("本次金幣數量")]
+    public Text textCurrent;
     #endregion
     #region 方法區域
     /// <summary>
@@ -89,7 +95,7 @@ public class player : MonoBehaviour
     {
         //布林值=輸入,取得按鍵(按鍵代碼列舉,左邊ctrl)
 
-        bool key2 = Input.GetKey(KeyCode.Space);
+        bool key2 = Input.GetKeyDown(KeyCode.Space);
         // 顛倒運算子!
         //作用:將布林值變成相反
         //!true---false
@@ -113,14 +119,17 @@ public class player : MonoBehaviour
     {
 
         bool key = Input.GetKey(KeyCode.LeftControl);
-
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            and.PlayOneShot(sounhy);
+        }
         ani.SetBool("滑行", key);
         if (key)
         {
             cc2d.offset = new Vector2(-0.328f, -1.44f);//位移
 
             cc2d.size = new Vector2(1.925f, 2.018f);//尺寸
-            and.PlayOneShot(sounhy);
+
         }
         else
         {
@@ -146,13 +155,36 @@ public class player : MonoBehaviour
         Destroy(collision.gameObject);
         textcoin.text = "金幣:" + coin;
         and.PlayOneShot(soungetcoin);
+        HP += 10;
+        imghp.fillAmount = HP / hpMax;
     }
     /// <summary>
     ///腳色死亡後的相關計算 
     /// </summary>
     private void Dead()
     {
-
+        HP = 0;
+        imghp.fillAmount = HP / hpMax;
+        if (dead) return;
+        speed = 0;
+        dead = true;
+        ani.SetTrigger("死亡觸發");
+        final.SetActive(true);
+        textTitle.text = "嫩";
+        textCurrent.text = "本次金幣數量" + coin;
+        speed = 0;
+        rig.velocity = Vector3.zero;
+    }
+    /// <summary>
+    /// 過關
+    /// </summary>
+    private void pass()
+    {
+        final.SetActive(true);
+        textTitle.text = "恭喜通關";
+        textCurrent.text = "本次金幣數量" + coin;
+        speed = 0;
+        rig.velocity = Vector3.zero;
     }
     /// <summary>
     /// 碰撞障礙後的相關計算
@@ -162,6 +194,10 @@ public class player : MonoBehaviour
         HP -= 50;
         imghp.fillAmount = HP / hpMax;
         and.PlayOneShot(soungethit);
+        if (HP <= 0) Dead();
+
+
+
     }
     #endregion
     #region 事件區域
@@ -178,6 +214,10 @@ public class player : MonoBehaviour
     //移動、監聽玩家鍵盤、滑鼠與觸控
     private void Update()
     {
+        if (dead) return;
+        if (transform.position.y <= -7) Dead();
+
+
         slide();
     }
     /// <summary>
@@ -185,7 +225,7 @@ public class player : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-
+        if (dead) return;
         Jump();
         Move();
     }
@@ -202,13 +242,13 @@ public class player : MonoBehaviour
             //是否在地板上=是
             isGround = true;
         }
-        if (collision.gameObject.name == "浮空地板"&& transform.position.y+1>collision.gameObject.transform.position.y)
+        if (collision.gameObject.name == "浮空地板")
 
         {
             //是否在地板上=是
             isGround = true;
         }
-     
+
 
     }
 
@@ -219,11 +259,14 @@ public class player : MonoBehaviour
         {
             getcoin(collision);
         }
-        if (collision.tag =="障礙物")
+        if (collision.tag == "障礙物")
         {
             hit();
         }
+    if (collision.name== "粒子效果")
+	{
+            pass();
+	}
     }
-
     #endregion
 }
