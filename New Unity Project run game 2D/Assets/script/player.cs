@@ -100,13 +100,14 @@ public class player : MonoBehaviour
         //作用:將布林值變成相反
         //!true---false
         ani.SetBool("跳躍", !isGround);
-        and.PlayOneShot(sounjump);
+        
 
         //如果在地板上
         if (isGround)
         {
             if (key2)
             {
+                and.PlayOneShot(sounjump);
                 isGround = false;//不在地板上
                 rig.AddForce(new Vector2(0, heignt));//剛體,添加推力(二維向量) 
             }
