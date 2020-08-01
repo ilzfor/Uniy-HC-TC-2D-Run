@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -81,33 +82,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 222}
+      Script: {instanceID: 588}
     - Class: 114
-      Script: {instanceID: 15540}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 15700}
+      Script: {instanceID: 11334}
     - Class: 114
-      Script: {instanceID: 15708}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 15830}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 15884}
+      Script: {instanceID: 11518}
     - Class: 114
-      Script: {instanceID: 16450}
+      Script: {instanceID: 12092}
     - Class: 114
-      Script: {instanceID: 16538}
+      Script: {instanceID: 12180}
     - Class: 114
-      Script: {instanceID: 17230}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 17346}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 13506}
     - Class: 114
-      Script: {instanceID: 17858}
+      Script: {instanceID: 13520}
     - Class: 114
-      Script: {instanceID: 17976}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 18580}
+      Script: {instanceID: 14250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,23 +171,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 15540}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 15830}
+      Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 15884}
+      Script: {instanceID: 11518}
     - Class: 114
-      Script: {instanceID: 16416}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 16538}
+      Script: {instanceID: 12180}
     - Class: 114
-      Script: {instanceID: 17230}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 17844}
+      Script: {instanceID: 13506}
     - Class: 114
-      Script: {instanceID: 17976}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 18580}
+      Script: {instanceID: 14250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
