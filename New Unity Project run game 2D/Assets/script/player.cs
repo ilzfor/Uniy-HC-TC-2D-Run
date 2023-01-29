@@ -1,6 +1,8 @@
-﻿
+﻿ 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+
 
 public class player : MonoBehaviour
 {
@@ -33,9 +35,8 @@ public class player : MonoBehaviour
     [Header("金幣文字")]
     public Text textcoin;
 
-    [Header("速度"), Tooltip("腳色移動速度"), Range(1, 1500)]
-
-    public int speed = 50;
+    [Header("速度"), Tooltip("腳色移動速度"), Range(1f, 10f)]
+    public float speed = 10.0f;
     [Tooltip("腳色血量")]
     public float HP = 500;
     [Tooltip("金幣")]
@@ -64,7 +65,7 @@ public class player : MonoBehaviour
     public bool isGround;
 
     [Header("血條")]
-    public Image imghp;
+    public UnityEngine.UI.Image imghp;
     private float hpMax;
     [Header("音效")]
     public AudioSource and;
@@ -81,63 +82,77 @@ public class player : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if (rig.velocity.magnitude < 4.3)
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.A))
         {
-            //剛體,添加推力(二維向量)
-            rig.AddForce(new Vector2(speed, 0));
+            horizontal = -1;
         }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            horizontal = 1;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            vertical = 0.5f;
+        }
+        else
+        {
+            vertical = 0;
+        }
+        transform.position = transform.position + new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
     }
     /// <summary>
-    /// 腳色跳躍的高度速度
+    /// 腳色跳躍的高度速度(棄用)
     /// </summary>
     private void Jump()
     {
-        //布林值=輸入,取得按鍵(按鍵代碼列舉,左邊ctrl)
+        ////布林值=輸入,取得按鍵(按鍵代碼列舉,左邊ctrl)
 
-        bool key2 = Input.GetKeyDown(KeyCode.Space);
-        // 顛倒運算子!
-        //作用:將布林值變成相反
-        //!true---false
-        ani.SetBool("跳躍", !isGround);
+        //bool key2 = Input.GetKeyDown(KeyCode.Space);
+        //// 顛倒運算子!
+        ////作用:將布林值變成相反
+        ////!true---false
+        //ani.SetBool("跳躍", !isGround);
         
 
-        //如果在地板上
-        if (isGround)
-        {
-            if (key2)
-            {
-                and.PlayOneShot(sounjump);
-                isGround = false;//不在地板上
-                rig.AddForce(new Vector2(0, heignt));//剛體,添加推力(二維向量) 
-            }
-        }
+        ////如果在地板上
+        //if (isGround)
+        //{
+        //    if (key2)
+        //    {
+        //        and.PlayOneShot(sounjump);
+        //        isGround = false;//不在地板上
+        //        rig.AddForce(new Vector2(0, heignt));//剛體,添加推力(二維向量) 
+        //    }
+        //}
     }
     /// <summary>
-    /// 腳色滑行時的速度和體積變化
+    /// 腳色滑行時的速度和體積變化(棄用)
     /// </summary>
     private void slide()
     {
 
-        bool key = Input.GetKey(KeyCode.LeftControl);
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            and.PlayOneShot(sounhy);
-        }
-        ani.SetBool("滑行", key);
-        if (key)
-        {
-            cc2d.offset = new Vector2(-0.328f, -1.44f);//位移
+        //bool key = Input.GetKey(KeyCode.LeftControl);
+        //if (Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //    and.PlayOneShot(sounhy);
+        //}
+        //ani.SetBool("滑行", key);
+        //if (key)
+        //{
+        //    cc2d.offset = new Vector2(-0.328f, -1.44f);//位移
 
-            cc2d.size = new Vector2(1.925f, 2.018f);//尺寸
+        //    cc2d.size = new Vector2(1.925f, 2.018f);//尺寸
 
-        }
-        else
-        {
-            cc2d.offset = new Vector2(-0.328f, -0.4425f);//位移
+        //}
+        //else
+        //{
+        //    cc2d.offset = new Vector2(-0.328f, -0.4425f);//位移
 
-            cc2d.size = new Vector2(1.925f, 4.013f);//尺寸
-        }
+        //    cc2d.size = new Vector2(1.925f, 4.013f);//尺寸
+        //}
 
     }
     /// <summary>
@@ -215,8 +230,10 @@ public class player : MonoBehaviour
     //移動、監聽玩家鍵盤、滑鼠與觸控
     private void Update()
     {
+       
         if (dead) return;
         if (transform.position.y <= -7) Dead();
+        Move();
 
 
         slide();
@@ -228,8 +245,9 @@ public class player : MonoBehaviour
     {
         if (dead) return;
         Jump();
-        Move();
+        
     }
+
     /// <summary>
     /// 碰撞事件:碰到物件開始執行一次
     /// </summary>
